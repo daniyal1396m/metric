@@ -86,17 +86,15 @@
                 return;
             }
 
-            // ارسال داده به دیتابیس با استفاده از AJAX
             jQuery.ajax({
                 url: ajaxurl,
                 type: 'POST',
                 data: {
-                    action: 'save_data_to_database', // نام اکشن وردپرس برای اجرای درخواست
+                    action: 'save_data_to_database',
                     data_value: inputValue
                 },
                 success: function(response) {
                     if (response === 'success') {
-                        // اگر ذخیره کردن در دیتابیس موفقیت‌آمیز بود، متن را به لیست اضافه کنید
                         var li = document.createElement("li");
                         var t = document.createTextNode(inputValue);
                         li.appendChild(t);
@@ -127,7 +125,6 @@
                 },
                 success: function (response) {
                     if (response === 'success') {
-                        // Remove the "Done" element from the list item
                         var listItem = document.querySelector('li[data-task-id="' + taskId + '"]');
                         var doneElement = listItem.querySelector('p');
                         if (doneElement) {
